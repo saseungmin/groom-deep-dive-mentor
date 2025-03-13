@@ -146,6 +146,11 @@ header {
   line-height: 24px;
   color: black;
   background-color: white;
+  transition: background-color 0.2s;
+}
+
+.banner-content .buttons .play-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .banner-content .buttons .info-btn {
@@ -159,6 +164,11 @@ header {
   line-height: 24px;
   color: white;
   background-color: rgba(109, 109, 110, 0.7);
+  transition: background-color 0.2s;
+}
+
+.banner-content .buttons .info-btn:hover {
+  background-color: rgba(109, 109, 110, 0.9);
 }
 
 .movie-section {
