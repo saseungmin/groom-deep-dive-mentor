@@ -27,7 +27,6 @@ class TodoApp {
 
   // 이벤트 위임을 통한 클릭 이벤트 처리
   handleTodoContainerClick(event) {
-    console.log(this);
     const target = event.target;
 
     // 수정 버튼 클릭
