@@ -11,11 +11,57 @@ function initTodoApp() {
   // 이벤트 리스너 등록
   addTodoBtn.addEventListener("click", createNewTodoInput);
 
+  // 이벤트 위임을 통한 이벤트 처리
+  todoContainer.addEventListener("click", handleTodoContainerClick);
+  todoContainer.addEventListener("change", handleTodoContainerChange);
+
   // localStorage에서 데이터 로드
   loadFromLocalStorage();
 
   // 초기 렌더링
   renderTodos();
+}
+
+// 이벤트 위임을 통한 클릭 이벤트 처리
+function handleTodoContainerClick(event) {
+  const target = event.target;
+
+  // 수정 버튼 클릭
+  if (target.classList.contains("edit-btn")) {
+    const todoItem = target.closest(".todo-item");
+    const todoId = todoItem.dataset.id;
+    const todo = todos.find((t) => t.id === todoId);
+
+    if (todo) {
+      startEditMode(todoItem, todo);
+    }
+    return;
+  }
+
+  // 삭제 버튼 클릭
+  if (target.classList.contains("delete-btn")) {
+    const todoItem = target.closest(".todo-item");
+    const todoId = todoItem.dataset.id;
+
+    if (todoId) {
+      deleteTodo(todoId);
+    }
+  }
+}
+
+// 이벤트 위임을 통한 체인지 이벤트 처리
+function handleTodoContainerChange(event) {
+  const target = event.target;
+
+  // 체크박스 변경
+  if (target.classList.contains("checkbox")) {
+    const todoItem = target.closest(".todo-item");
+    const todoId = todoItem.dataset.id;
+
+    if (todoId) {
+      toggleComplete(todoId);
+    }
+  }
 }
 
 // localStorage에서 todos 로드
@@ -177,6 +223,7 @@ function renderTodos() {
   for (const todo of todos) {
     const todoElement = document.createElement("div");
     todoElement.className = "todo-item";
+    todoElement.dataset.id = todo.id; // todo의 id를 data 속성으로 저장
 
     if (todo.completed) {
       todoElement.classList.add("completed");
@@ -187,7 +234,7 @@ function renderTodos() {
     checkboxElement.type = "checkbox";
     checkboxElement.className = "checkbox";
     checkboxElement.checked = todo.completed;
-    checkboxElement.addEventListener("change", () => toggleComplete(todo.id));
+    // 개별 이벤트 리스너 제거 (이벤트 위임으로 대체)
 
     // Todo 텍스트
     const todoTextElement = document.createElement("div");
@@ -202,15 +249,13 @@ function renderTodos() {
     const editButtonElement = document.createElement("button");
     editButtonElement.className = "edit-btn";
     editButtonElement.textContent = "수정";
-    editButtonElement.addEventListener("click", () =>
-      startEditMode(todoElement, todo)
-    );
+    // 개별 이벤트 리스너 제거 (이벤트 위임으로 대체)
 
     // 삭제 버튼
     const deleteButtonElement = document.createElement("button");
     deleteButtonElement.className = "delete-btn";
     deleteButtonElement.textContent = "삭제";
-    deleteButtonElement.addEventListener("click", () => deleteTodo(todo.id));
+    // 개별 이벤트 리스너 제거 (이벤트 위임으로 대체)
 
     // 요소들 추가
     actionsElement.appendChild(editButtonElement);
