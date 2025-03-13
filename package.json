@@ -1,0 +1,16 @@
+{
+  "name": "groom-deep-dive-mentor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saseungmin <dbd02169@naver.com>",
+  "license": "ISC",
+  "repository": "git@github.com:saseungmin/groom-deep-dive-mentor.git",
+  "packageManager": "yarn@4.7.0",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  }
+}
