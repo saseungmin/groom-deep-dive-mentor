@@ -7,6 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
+		"include": ["**/*.js", "**/*.jsx"],
 		"ignore": ["node_modules", "dist", "build", "*.pnp.cjs"]
 	},
 	"formatter": {
@@ -19,7 +20,10 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"complexity": {
+				"noForEach": "off"
+			}
 		}
 	},
 	"javascript": {

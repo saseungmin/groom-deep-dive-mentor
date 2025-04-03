@@ -1,0 +1,12 @@
+.sidebar {
+  width: 293px;
+  margin-left: 28px;
+  position: fixed;
+  left: calc(50% + 167px);
+}
+
+@media (max-width: 1000px) {
+  .sidebar {
+    display: none;
+  }
+}

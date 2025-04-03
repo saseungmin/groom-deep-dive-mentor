@@ -1,0 +1,149 @@
+.post {
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.post-user {
+  display: flex;
+  align-items: center;
+}
+
+.post-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-user-username {
+  font-weight: 600;
+  color: #262626;
+}
+
+.post-more {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 614px;
+  object-fit: cover;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+
+.post-action-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.post-action-icon {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.post-action-icon.liked {
+  color: #ed4956;
+}
+
+.post-action-icon.bookmarked {
+  font-weight: bold;
+}
+
+.post-likes {
+  padding: 0 16px;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 8px;
+}
+
+.post-caption {
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+
+.post-caption-username {
+  font-weight: 600;
+  color: #262626;
+  margin-right: 4px;
+}
+
+.post-comments-toggle {
+  padding: 0 16px;
+  color: #8e8e8e;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.post-time {
+  padding: 0 16px;
+  color: #8e8e8e;
+  font-size: 10px;
+  margin-bottom: 16px;
+}
+
+.comments-container {
+  padding: 0 16px;
+  margin-bottom: 12px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.comment {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.comment-username {
+  font-weight: 600;
+  color: #262626;
+  margin-right: 4px;
+}
+
+.comment-text {
+  color: #262626;
+  word-break: break-word;
+}
+
+.post-add-comment {
+  border-top: 1px solid #efefef;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-input {
+  border: none;
+  outline: none;
+  width: 90%;
+  font-size: 14px;
+}
+
+.comment-button {
+  color: #0095f6;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.comment-button:disabled {
+  color: #b3dffc;
+  cursor: default;
+}

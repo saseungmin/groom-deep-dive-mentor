@@ -1,0 +1,212 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "myusername",
+      "full_name": "내 이름",
+      "profile_picture": "https://picsum.photos/id/64/150/150",
+      "bio": "프론트엔드 개발자 & 여행 좋아함",
+      "counts": {
+        "media": 42,
+        "follows": 168,
+        "followed_by": 217
+      }
+    },
+    {
+      "id": 2,
+      "username": "travelgram",
+      "full_name": "여행 가이드",
+      "profile_picture": "https://picsum.photos/id/21/150/150",
+      "bio": "세계 각지 여행 사진",
+      "counts": {
+        "media": 547,
+        "follows": 324,
+        "followed_by": 12354
+      }
+    },
+    {
+      "id": 3,
+      "username": "foodie_seoul",
+      "full_name": "서울 맛집 탐방",
+      "profile_picture": "https://picsum.photos/id/42/150/150",
+      "bio": "서울 맛집 소개 및 리뷰",
+      "counts": {
+        "media": 248,
+        "follows": 127,
+        "followed_by": 4562
+      }
+    },
+    {
+      "id": 4,
+      "username": "tech_developer",
+      "full_name": "테크 개발자",
+      "profile_picture": "https://picsum.photos/id/24/150/150",
+      "bio": "개발 정보 공유",
+      "counts": {
+        "media": 87,
+        "follows": 231,
+        "followed_by": 1762
+      }
+    }
+  ],
+  "stories": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "media_type": "image",
+      "media_url": "https://picsum.photos/id/237/500/750",
+      "created_time": 1713080000
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "media_type": "image",
+      "media_url": "https://picsum.photos/id/238/500/750",
+      "created_time": 1713083600
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "media_type": "image",
+      "media_url": "https://picsum.photos/id/239/500/750",
+      "created_time": 1713087200
+    },
+    {
+      "id": 4,
+      "user_id": 4,
+      "media_type": "image",
+      "media_url": "https://picsum.photos/id/240/500/750",
+      "created_time": 1713090800
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "image_url": "https://picsum.photos/id/10/600/600",
+      "caption": "제주도의 아름다운 해변에서 휴식 중 🌊 #제주 #여행 #바다",
+      "likes_count": 256,
+      "created_time": 1713024000,
+      "location": "제주도"
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "image_url": "https://picsum.photos/id/20/600/600",
+      "caption": "오늘의 브런치 🍳 #맛스타그램 #브런치 #카페투어",
+      "likes_count": 128,
+      "created_time": 1713058400,
+      "location": "서울 강남구"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "post_id": 1,
+      "user_id": 4,
+      "text": "너무 예쁜 곳이네요! 어떤 해변인가요?",
+      "created_time": 1713027600
+    },
+    {
+      "id": 2,
+      "post_id": 1,
+      "user_id": 1,
+      "text": "구도가 정말 좋습니다. 카메라 정보를 알 수 있을까요?",
+      "created_time": 1713031200
+    },
+    {
+      "id": 3,
+      "post_id": 1,
+      "user_id": 3,
+      "text": "현지인이 추천하는 맛집도 방문해보세요!",
+      "created_time": 1713034800
+    },
+    {
+      "id": 4,
+      "post_id": 2,
+      "user_id": 4,
+      "text": "위치가 어디인지 알 수 있을까요?",
+      "created_time": 1713062000
+    },
+    {
+      "id": 5,
+      "post_id": 2,
+      "user_id": 2,
+      "text": "플레이팅이 너무 예쁘네요~",
+      "created_time": 1713065600
+    }
+  ],
+  "suggested_users": [
+    {
+      "id": 1,
+      "user_id": 5,
+      "username": "developer_kim",
+      "full_name": "개발자 김",
+      "profile_picture": "https://picsum.photos/id/91/150/150",
+      "reason": "회원님을 위한 추천"
+    },
+    {
+      "id": 2,
+      "user_id": 6,
+      "username": "traveller_lee",
+      "full_name": "여행가 이",
+      "profile_picture": "https://picsum.photos/id/92/150/150",
+      "reason": "회원님을 팔로우합니다"
+    },
+    {
+      "id": 3,
+      "user_id": 7,
+      "username": "creative_park",
+      "full_name": "크리에이터 박",
+      "profile_picture": "https://picsum.photos/id/93/150/150",
+      "reason": "회원님을 위한 추천"
+    },
+    {
+      "id": 4,
+      "user_id": 8,
+      "username": "photo_jung",
+      "full_name": "사진작가 정",
+      "profile_picture": "https://picsum.photos/id/94/150/150",
+      "reason": "회원님을 팔로우합니다"
+    }
+  ],
+  "likes": [
+    {
+      "id": 1,
+      "post_id": 1,
+      "user_id": 1
+    },
+    {
+      "id": 2,
+      "post_id": 1,
+      "user_id": 3
+    },
+    {
+      "id": 3,
+      "post_id": 2,
+      "user_id": 2
+    }
+  ],
+  "follows": [
+    {
+      "id": 1,
+      "follower_id": 1,
+      "following_id": 2
+    },
+    {
+      "id": 2,
+      "follower_id": 1,
+      "following_id": 3
+    },
+    {
+      "id": 3,
+      "follower_id": 2,
+      "following_id": 1
+    },
+    {
+      "id": 4,
+      "follower_id": 4,
+      "following_id": 1
+    }
+  ]
+}

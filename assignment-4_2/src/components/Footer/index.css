@@ -1,0 +1,21 @@
+.footer-container {
+  margin-top: 20px;
+}
+
+.footer-links {
+  color: #c7c7c7;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.footer-links a {
+  color: #c7c7c7;
+  text-decoration: none;
+}
+
+.copyright {
+  margin-top: 16px;
+  color: #c7c7c7;
+  font-size: 11px;
+  text-transform: uppercase;
+}
