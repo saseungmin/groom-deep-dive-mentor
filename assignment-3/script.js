@@ -1,5 +1,5 @@
 // YouTube API 키 (실제 사용시 본인의 API 키로 교체하세요)
-const API_KEY = "AIzaSyBe1D5tkECOZ4rArKgwAciRnPoPRW9FpZc";
+const API_KEY = "XXXXXXXXXXXXXXXXX";
 
 // DOM이 로드된 후 실행
 document.addEventListener("DOMContentLoaded", initializeApp);
