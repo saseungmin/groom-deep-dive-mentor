@@ -1,0 +1,25 @@
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin: 18px 0 10px 0;
+}
+
+.user-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-right: 14px;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-username {
+  font-weight: 600;
+  color: #262626;
+}
+
+.profile-name {
+  color: #8e8e8e;
+}
