@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./index.css";
 
-function Post({ post, onToggleLike, onAddComment }) {
+function Post({ post: initialPost }) {
+	const [post, setPost] = useState(initialPost);
 	const [isLiked, setIsLiked] = useState(false);
 	const [isBookmarked, setIsBookmarked] = useState(false);
 	const [showComments, setShowComments] = useState(false);
 	const [commentText, setCommentText] = useState("");
+	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	// 시간 형식 변환
 	const getTimeAgo = (timestamp) => {
@@ -29,26 +31,72 @@ function Post({ post, onToggleLike, onAddComment }) {
 		return `${days}일 전`;
 	};
 
-	const handleLikeClick = () => {
-		setIsLiked(!isLiked);
-		onToggleLike(post.id, !isLiked);
-	};
-
 	const handleBookmarkClick = () => {
 		setIsBookmarked(!isBookmarked);
 	};
 
-	const handleCommentSubmit = (e) => {
-		e.preventDefault();
-		if (commentText.trim()) {
-			onAddComment(post.id, commentText);
-			setCommentText("");
-			setShowComments(true);
+	const toggleComments = () => {
+		setShowComments(!showComments);
+	};
+
+	const handleLikeClick = async () => {
+		const previousIsLiked = isLiked;
+		const previousLikesCount = post.likes.count;
+
+		// 낙관적 UI 업데이트
+		setIsLiked(!isLiked);
+		setPost((prev) => ({
+			...prev,
+			likes: {
+				count: isLiked ? prev.likes.count - 1 : prev.likes.count + 1,
+			},
+		}));
+
+		try {
+			const response = await instagramAPI.toggleLike(post.id, !previousIsLiked);
+			if (!response.success) {
+				// 실패 시 UI 복원
+				setIsLiked(previousIsLiked);
+				setPost((prev) => ({
+					...prev,
+					likes: { count: previousLikesCount },
+				}));
+			}
+		} catch (error) {
+			console.error("좋아요 처리 오류:", error);
+			// 오류 시 UI 복원
+			setIsLiked(previousIsLiked);
+			setPost((prev) => ({
+				...prev,
+				likes: { count: previousLikesCount },
+			}));
 		}
 	};
 
-	const toggleComments = () => {
-		setShowComments(!showComments);
+	const handleCommentSubmit = async (e) => {
+		e.preventDefault();
+		if (!commentText.trim() || isSubmitting) return;
+
+		setIsSubmitting(true);
+		try {
+			const response = await instagramAPI.addComment(post.id, commentText);
+			if (response.success) {
+				// 댓글 추가 성공
+				setPost((prev) => ({
+					...prev,
+					comments: {
+						count: response.comments_count,
+						data: [...prev.comments.data, response.comment],
+					},
+				}));
+				setCommentText("");
+				setShowComments(true);
+			}
+		} catch (error) {
+			console.error("댓글 추가 오류:", error);
+		} finally {
+			setIsSubmitting(false);
+		}
 	};
 
 	return (

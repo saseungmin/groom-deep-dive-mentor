@@ -1,7 +1,29 @@
-import React from "react";
-import "./index.css";
+import React, { useEffect, useState } from "react";
+import instagramAPI from "../api/instagram-api";
+import "./Stories.css";
 
-function Stories({ stories, isLoading }) {
+function Stories() {
+	const [stories, setStories] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		const loadStories = async () => {
+			try {
+				setIsLoading(true);
+				const storiesData = await instagramAPI.getStories();
+				setStories(storiesData);
+			} catch (err) {
+				console.error("스토리 로드 오류:", err);
+				setError("스토리를 불러오는데 실패했습니다");
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		loadStories();
+	}, []);
+
 	if (isLoading) {
 		return (
 			<div className="stories">
@@ -13,6 +35,10 @@ function Stories({ stories, isLoading }) {
 				))}
 			</div>
 		);
+	}
+
+	if (error) {
+		return <div className="stories-error">{error}</div>;
 	}
 
 	const handleStoryClick = (storyId, username) => {
