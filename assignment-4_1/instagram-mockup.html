@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>인스타그램 목업 - JSON Server API 연동</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- 네비게이션 바 -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="#" class="logo">Instagram</a>
+                <div class="nav-icons">
+                    <div class="nav-icon">🏠</div>
+                    <div class="nav-icon">✉️</div>
+                    <div class="nav-icon">🧭</div>
+                    <div class="nav-icon">❤️</div>
+                    <div class="nav-icon">👤</div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 메인 컨텐츠 -->
+        <div class="main-container">
+            <!-- 피드 컨텐츠 -->
+            <div class="content">
+                <!-- 스토리 섹션 -->
+                <div class="stories">
+                    <!-- JavaScript에 의해 동적으로 생성됨 -->
+                    <div class="story loading">
+                        <div class="loading-circle"></div>
+                        <div class="loading-text">불러오는 중...</div>
+                    </div>
+                </div>
+
+                <!-- 포스트 로딩 표시 -->
+                <div class="post loading">
+                    <div class="loading-header"></div>
+                    <div class="loading-image"></div>
+                    <div class="loading-content"></div>
+                    <div class="loading-text">포스트를 불러오는 중...</div>
+                </div>
+            </div>
+
+            <!-- 사이드바 -->
+            <div class="sidebar">
+                <div class="user-profile">
+                    <img src="https://picsum.photos/id/64/150/150" alt="내 프로필"
+                        class="user-avatar">
+                    <div class="profile-info">
+                        <div class="profile-username">불러오는 중...</div>
+                        <div class="profile-name"></div>
+                    </div>
+                </div>
+
+                <div class="suggestions-header">
+                    <div class="suggestions-title">회원님을 위한 추천</div>
+                    <div class="see-all">모두 보기</div>
+                </div>
+
+                <!-- 추천 사용자는 JavaScript에 의해 동적으로 생성됨 -->
+                <div class="suggestion loading">
+                    <div class="loading-avatar"></div>
+                    <div class="loading-info">
+                        <div class="loading-username"></div>
+                        <div class="loading-text"></div>
+                    </div>
+                    <div class="loading-button"></div>
+                </div>
+
+                <div class="footer">
+                    <a href="#">소개</a> · <a href="#">도움말</a> · <a href="#">홍보
+                        센터</a> · <a href="#">API</a> · <a href="#">채용 정보</a> ·
+                    <a href="#">개인정보처리방침</a> · <a href="#">약관</a> · <a
+                        href="#">위치</a> · <a href="#">인기 계정</a> · <a
+                        href="#">해시태그</a> · <a href="#">언어</a>
+                </div>
+
+                <div class="copyright">© 2025 instagram from meta</div>
+            </div>
+        </div>
+
+        <!-- JSON Server API 연동을 위한 스크립트 -->
+        <script type="module" src="json-server-integration.js"></script>
+
+        <!-- 로딩 스타일 -->
+        <style>
+        .loading-circle, .loading-header, .loading-avatar, .loading-image, .loading-content, .loading-username, .loading-text, .loading-button {
+            background-color: #f0f0f0;
+            animation: pulse 1.5s infinite;
+            border-radius: 4px;
+        }
+        
+        .loading-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        
+        .loading-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+        
+        .loading-header {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        
+        .loading-image {
+            height: 300px;
+            margin-bottom: 10px;
+        }
+        
+        .loading-content {
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        
+        .loading-username {
+            height: 16px;
+            width: 100px;
+            margin-bottom: 5px;
+        }
+        
+        .loading-text {
+            height: 14px;
+            width: 150px;
+            color: #8e8e8e;
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        .loading-button {
+            height: 20px;
+            width: 60px;
+        }
+        
+        .loading.suggestion {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .loading.suggestion .loading-info {
+            flex: 1;
+            margin: 0 10px;
+        }
+        
+        .loading.story {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+    </style>
+    </body>
+</html>
